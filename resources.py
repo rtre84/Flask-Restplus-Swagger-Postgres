@@ -2,11 +2,17 @@
 from models import Todo
 from db import session
 
-from flask.ext.restful import reqparse
-from flask.ext.restful import abort
-from flask.ext.restful import Resource
-from flask.ext.restful import fields
-from flask.ext.restful import marshal_with
+# from flask.ext.restful import reqparse
+# from flask.ext.restful import abort
+# from flask.ext.restful import Resource
+# from flask.ext.restful import fields
+# from flask.ext.restful import marshal_with
+
+from flask_restplus import reqparse
+from flask_restplus import abort
+from flask_restplus import Resource
+from flask_restplus import fields
+from flask_restplus import marshal_with
 
 todo_fields = {
     'id': fields.Integer,
@@ -49,6 +55,12 @@ class TodoListResource(Resource):
         todos = session.query(Todo).all()
         return todos
 
+    # Testing the below method using curl
+    # curl - X POST - -header 'Accept: application/json' 'http://localhost:5000/todos' - d "task='Write Unit Tests'"
+    # OR
+    # curl -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' 'http://localhost:5000/todos' -d '{"task":"Testing via curl"}'
+    #
+    # TODO: Add Swagger Documentation for task so test from swagger ui shows a valid request
     @marshal_with(todo_fields)
     def post(self):
         parsed_args = parser.parse_args()

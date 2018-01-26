@@ -1,7 +1,10 @@
 #!/usr/bin/env python
 
 from flask import Flask
-from flask.ext.restful import Api
+
+# Importing Api from flask-restful-swagger-2 so the routes have Swagger-2 support
+# from flask.ext.restful import Api
+from flask_restplus import Api
 
 app = Flask(__name__)
 api = Api(app)
