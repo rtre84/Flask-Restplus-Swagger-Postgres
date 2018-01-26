@@ -1,3 +1,5 @@
+### Originally forked from https://github.com/mmautner/simple_api
+
 Demo RESTful HTTP API using [Flask](https://github.com/pallets/flask), [Flask-Restful](https://github.com/flask-restful/flask-restful) and [SQLAlchemy](https://github.com/zzzeek/sqlalchemy)
 ===================
 
